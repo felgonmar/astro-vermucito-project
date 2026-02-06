@@ -9,41 +9,152 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3em;
+				align-items: center;
+				margin-bottom: 4em;
+				padding: 2em 0;
+			}
+			.hero-content h1 {
+				font-size: 3.5em;
+				margin-bottom: 0.3em;
+				background: linear-gradient(135deg, #ff6b35, #f7931e);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+			.hero-tagline {
+				font-size: 1.3em;
+				color: rgb(var(--gray));
+				margin-bottom: 1.5em;
+				font-weight: 300;
+			}
+			.cta-button {
+				display: inline-block;
+				padding: 0.8em 2em;
+				background: linear-gradient(135deg, #ff6b35, #f7931e);
+				color: white;
+				text-decoration: none;
+				border-radius: 50px;
+				font-weight: bold;
+				transition: transform 0.3s, box-shadow 0.3s;
+				box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+			}
+			.cta-button:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+				color: white;
+			}
+			.bottle-visual {
+				text-align: center;
+				font-size: 8em;
+				animation: float 3s ease-in-out infinite;
+			}
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-20px); }
+			}
+			.features {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2em;
+				margin: 4em 0;
+			}
+			.feature-card {
+				background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+				padding: 2em;
+				border-radius: 10px;
+				border-left: 4px solid #ff6b35;
+				transition: transform 0.3s;
+			}
+			.feature-card:hover {
+				transform: translateY(-5px);
+			}
+			.feature-card h3 {
+				color: #ff6b35;
+				margin-top: 0;
+			}
+			.feature-icon {
+				font-size: 2.5em;
+				margin-bottom: 0.5em;
+			}
+			.about-section {
+				background: linear-gradient(135deg, rgba(35, 55, 255, 0.05), rgba(0, 13, 138, 0.05));
+				padding: 3em;
+				border-radius: 10px;
+				margin: 4em 0;
+			}
+			.about-section h2 {
+				color: #ff6b35;
+			}
+			@media (max-width: 768px) {
+				.hero {
+					grid-template-columns: 1fr;
+				}
+				.hero-content h1 {
+					font-size: 2.5em;
+				}
+				.features {
+					grid-template-columns: 1fr;
+				}
+				.bottle-visual {
+					font-size: 5em;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Vermucito</h1>
+					<p class="hero-tagline">Experience the perfect blend of Spanish tradition and citrus freshness</p>
+					<p>Vermucito is a premium vermut spritz infused with vibrant citrus notes. Each sip brings you closer to unforgettable moments with friends and family.</p>
+					<a href="#" class="cta-button">Discover Now</a>
+				</div>
+				<div class="bottle-visual">🍋</div>
+			</section>
+
+			<!-- Features Section -->
+			<section class="features">
+				<div class="feature-card">
+					<div class="feature-icon">✨</div>
+					<h3>Premium Vermut</h3>
+					<p>Crafted with the finest Spanish vermouth blend, bringing authentic taste to every glass.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🍊</div>
+					<h3>Citrus Infusion</h3>
+					<p>Bursting with bright citrus notes of orange, lemon, and lime for a refreshing experience.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🌟</div>
+					<h3>Perfect Balance</h3>
+					<p>Smooth, sophisticated, and dangerously easy to drink. The ideal aperitif any time of day.</p>
+				</div>
+			</section>
+
+			<!-- About Section -->
+			<section class="about-section">
+				<h2>Why Vermucito?</h2>
+				<p>Born from the passion of capturing the Spanish spirit of gathering and celebration, Vermucito combines traditional vermouth craftsmanship with contemporary citrus sensibilities. Every bottle is a testament to quality, tradition, and the joy of sharing good moments.</p>
+				<p>Whether you're starting your evening or celebrating with loved ones, Vermucito is the spritz for those who appreciate the finer things—served chilled over ice with a slice of orange.</p>
+			</section>
+
+			<!-- Serving Suggestion -->
+			<section class="about-section" style="background: linear-gradient(135deg, rgba(247, 147, 30, 0.1), rgba(255, 107, 53, 0.1));">
+				<h2>How to Serve</h2>
+				<ul>
+					<li><strong>The Classic:</strong> Pour over ice in a wine glass, top with sparkling water and a splash of soda. Garnish with an orange slice.</li>
+					<li><strong>The Citrus Splash:</strong> Mix with fresh lemon juice and a touch of agave. Serve chilled over ice.</li>
+					<li><strong>The Perfect Aperitif:</strong> Enjoy straight, slightly chilled, as nature intended.</li>
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>
